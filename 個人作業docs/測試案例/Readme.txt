@@ -1,1 +1,2 @@
-³o­Ó¸ê®Æ§¨¬O©ñ´ú¸Õ®×¨Òªº¦a¤è¡Ause Git Bash for Windows Power Shell
+é€™å€‹è³‡æ–™å¤¾æ˜¯æ”¾æ¸¬è©¦æ¡ˆä¾‹çš„åœ°æ–¹ï¼Œuse Git Bash for Windows Power Shell
+second test
