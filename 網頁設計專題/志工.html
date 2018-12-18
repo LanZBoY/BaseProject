@@ -30,6 +30,84 @@
 	.style2{text-align:center}
 	.style3{height:400px;width:400px;padding:10px;border:5px dashed blue;margin-top:10px;margin-bottom:10px}
 	</style>
+	<script>
+		function validatenameForm() {
+			var vname = document.forms["myForm"]["fname"].value;
+			var vyear = document.forms["myForm"]["year"].value;
+			var vmonth = document.forms["myForm"]["month"].value;
+			var vday = document.forms["myForm"]["day"].value;
+			var vsex = document.forms["myForm"]["Yoursex"].value;
+			var vpersonid = document.forms["myForm"]["personid"].value;
+			var vworkplace = document.forms["myForm"]["workplace"].value;
+			var vcompany = document.forms["myForm"]["company"].value;
+			var vhome = document.forms["myForm"]["home"].value;
+			var vcellphone= document.forms["myForm"]["cellphone"].value;
+			var vpostid = document.forms["myForm"]["postid"].value;
+			var vaddress = document.forms["myForm"]["address"].value;
+			var special = 0;
+			if (vname == "") {
+				alert("名字不可為空");
+				return false;
+			}
+			if (vyear == "") {
+				alert("年不可為空");
+				return false;
+			}
+			if (vyear >= 2018 || vyear <= 1800) {
+				alert("年份錯誤");
+				return false;
+			}
+			if (vyear % 4 == 0 && vyear % 100 != 0){
+				special = 1;
+			}
+			if (vmonth == "") {
+				alert("月份不可為空");
+				return false;
+			}
+			if (vday == "") {
+				alert("日期不可為空");
+				return false;
+			}
+			if (vmonth== 2&& vday > 28 && special!=1) {
+				alert("日期錯誤");
+				return false;
+			}
+			if (vsex == "male") {
+				vsex = "男";
+			}
+			if (vsex == "weman") {
+				vsex = "女";
+			}
+			if (vpersonid == "") {
+				alert("身分證字號不可為空");
+				return false;
+			}
+			if (vworkplace == "") {
+				alert("單位名稱不可為空");
+				return false;
+			}
+			if (vcompany== "") {
+				vcellphone = "無";
+			}
+			if (vhome == "") {
+				alert("住家電話不可為空");
+				return false;
+			}
+			if (vcellphone == "") {
+				vcellphone = "無";
+			}
+			if (vpostid == "") {
+				alert("郵遞區號不可為空");
+				return false;
+			}
+			if (vaddress == "") {
+				alert("通訊地址不可為空");
+				return false;
+			}
+			alert("姓名: " + vname  + " 生日: " + vyear + " 年 " + vmonth + " 月 " + vday + " 日 性別：" + vsex  + "\n身分證字號 : " + vpersonid + " 單位名稱 : " + vworkplace + "\n單位電話 : " + vcompany +" 住家電話 : "+ vhome +" 手機 : "+ vcellphone +"\n郵遞區號 : "+ vpostid +" 通訊地址 : " + vaddress);
+			return false;
+		}
+	</script>
 </head>
 <body style="margin:0px;background-color:#BDBDBD">
 
@@ -37,47 +115,46 @@
 	
 	<div class = "content">
 		<div class="style2">
-			<hr width=95% size=3 color=#FFFFFF>
+			<hr width=95% size=2 color=#FFFFFF>
 			<div class = "stylehead2">基本資料 :</div>
-			<hr width=95% size=3 color=#FFFFFF>
-			<form action="test.php" method="post" class = "stylehead"> 姓名：<input type="text" maxlength="3" size = "10" class="inputstyle">	出生日期：
-			<input type="text" maxlength="3" size = "5" class="inputstyle">年
-			<input type="text" maxlength="2" size = "3" class="inputstyle">月
-			<input type="text" maxlength="2" size = "3" class="inputstyle">日 
-			</form>		
-			<hr width=95% size=3 color=#FFFFFF>
-			<form action="test.php" method="post" class = "stylehead"> 性別：
-				<select name="Yoursex" class = "stylehead">
-　					<option value="male" class = "stylehead">男</option>
-　					<option value="weman" class = "stylehead">女</option>
-				</select> 
-				身分證字號 <input type="text" maxlength="10" size = "35" class="inputstyle"></form>
-				<hr width=95% size=3 color=#FFFFFF>
-			<form action="test.php" method="post" class = "stylehead"> 學校或單位名稱：<input type="text"  maxlength="20" size = "40" class="inputstyle"> </form>
-			<hr width=95% size=3 color=#FFFFFF>
+			<hr width=95% size=2 color=#FFFFFF>
+			<form name="myForm" action="test.php" onsubmit="return validatenameForm()" method="post" class = "stylehead"> 姓名：<input type="text" name="fname" maxlength="3" size = "10" class="inputstyle">
+			出生日期：<input type="number" min="1800" max="2018" class="inputstyle" name = "year">年
+			<input type="number" min="1" max="12" class="inputstyle" name = "month">月
+			<input type="number" min="1" max="31" class="inputstyle" name = "day">日 
+			<hr width=95% size=1 color=#FFFFFF>
+			性別：<select name="Yoursex" class = "stylehead">
+　					<option value="male" class = "stylehead" name = "male">男</option>
+　					<option value="weman" class = "stylehead" name = "weman">女</option>
+				  </select> 
+			身分證字號 <input type="text" maxlength="10" size = "35" class="inputstyle" name = "personid">
+			<hr width=95% size=1 color=#FFFFFF>
+			學校或單位名稱：<input type="text"  maxlength="20" size = "40" class="inputstyle" name = "workplace">
+			<hr width=95% size=0.5 color=#FFFFFF>
 			<div class = "stylehead2">聯絡電話 :</div>
-			<hr width=95% size=3 color=#FFFFFF>
-			<form action="test.php" method="post" class = "stylehead"> 相關單位：<input type="text" class="inputstyle" maxlength="7" size = "10"> 住家：<input type="text" class="inputstyle" maxlength="7" size = "10"> 手機：<input type="text" class="inputstyle" maxlength="10" size = "10"></form>
-			<hr width=95% size=3 color=#FFFFFF>
-			<form action="test.php" method="post" class = "stylehead"> 郵遞區號：<input type="text" maxlength="3" size = "3" class="inputstyle"> 通訊地址：<input type="text" maxlength="50" size = "50" class="inputstyle"></form>
-			<hr width=95% size=3 color=#FFFFFF>
+			<hr width=95% size=0.5 color=#FFFFFF>
+			相關單位(非必要)：<input type="text" class="inputstyle" maxlength="7" size = "10" name = "company"> 住家：<input type="text" class="inputstyle" maxlength="7" size = "10" name = "home"> 手機(非必要)：<input type="text" class="inputstyle" maxlength="10" size = "10" name = "cellphone">
+			<hr width=95% size=2 color=#FFFFFF>
+			郵遞區號：<input type="number" min="100" max="819" class="inputstyle" name = "postid"> 通訊地址：<input type="text" maxlength="50" size = "50" class="inputstyle" name = "address">
+			<hr width=95% size=0.5 color=#FFFFFF>
 			<div class = "stylehead2">可服務時段 :</div>
-			<hr width=95% size=3 color=#FFFFFF>
-			<form action="test.php" method="post" class = "stylehead"> 禮拜一：<input type="text" maxlength="2" size = "2" class="inputstyle">時<input type="text" maxlength="2" size = "2" class="inputstyle">分 至 <input type="text" maxlength="2" size = "2" class="inputstyle">時<input type="text" maxlength="2" size = "2" class="inputstyle">分 </form>
-			<hr width=95% size=3 color=#FFFFFF>
-			<form action="test.php" method="post" class = "stylehead"> 禮拜二：<input type="text" maxlength="2" size = "2" class="inputstyle">時<input type="text" maxlength="2" size = "2" class="inputstyle">分 至 <input type="text" maxlength="2" size = "2" class="inputstyle">時<input type="text" maxlength="2" size = "2" class="inputstyle">分 </form>
-			<hr width=95% size=3 color=#FFFFFF>
-			<form action="test.php" method="post" class = "stylehead"> 禮拜三：<input type="text" maxlength="2" size = "2" class="inputstyle">時<input type="text" maxlength="2" size = "2" class="inputstyle">分 至 <input type="text" maxlength="2" size = "2" class="inputstyle">時<input type="text" maxlength="2" size = "2" class="inputstyle">分 </form>
-			<hr width=95% size=3 color=#FFFFFF>		
-			<form action="test.php" method="post" class = "stylehead"> 禮拜四：<input type="text" maxlength="2" size = "2" class="inputstyle">時<input type="text" maxlength="2" size = "2" class="inputstyle">分 至 <input type="text" maxlength="2" size = "2" class="inputstyle">時<input type="text" maxlength="2" size = "2" class="inputstyle">分 </form>
-			<hr width=95% size=3 color=#FFFFFF>		
-			<form action="test.php" method="post" class = "stylehead"> 禮拜五：<input type="text" maxlength="2" size = "2" class="inputstyle">時<input type="text" maxlength="2" size = "2" class="inputstyle">分 至 <input type="text" maxlength="2" size = "2" class="inputstyle">時<input type="text" maxlength="2" size = "2" class="inputstyle">分 </form>
-			<hr width=95% size=3 color=#FFFFFF>
-			<form action="test.php" method="post" class = "stylehead"> 禮拜六：<input type="text" maxlength="2" size = "2" class="inputstyle">時<input type="text" maxlength="2" size = "2" class="inputstyle">分 至 <input type="text" maxlength="2" size = "2" class="inputstyle">時<input type="text" maxlength="2" size = "2" class="inputstyle">分 </form>
-			<hr width=95% size=3 color=#FFFFFF>
-			<form action="test.php" method="post" class = "stylehead"> 禮拜日：<input type="text" maxlength="2" size = "2" class="inputstyle">時<input type="text" maxlength="2" size = "2" class="inputstyle">分 至 <input type="text" maxlength="2" size = "2" class="inputstyle">時<input type="text" maxlength="2" size = "2" class="inputstyle">分 </form>
-			<hr width=95% size=3 color=#FFFFFF>			
+			<hr width=95% size=0.5 color=#FFFFFF>
+			禮拜一：<input type="number" min="7" max="20" class="inputstyle" name = "1sh">時<input type="number" min="0" max="60" class="inputstyle" name = "1sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name = "1eh">時<input type="number" min="0" max="60" class="inputstyle" name = "1em">分
+			<hr width=95% size=2 color=#FFFFFF>
+			禮拜二：<input type="number" min="7" max="20" class="inputstyle" name = "2sh">時<input type="number" min="0" max="60" class="inputstyle" name = "2sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name = "2eh">時<input type="number" min="0" max="60" class="inputstyle" name = "2em">分
+			<hr width=95% size=2 color=#FFFFFF>
+			禮拜三：<input type="number" min="7" max="20" class="inputstyle" name = "3sh">時<input type="number" min="0" max="60" class="inputstyle" name = "3sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name = "3eh">時<input type="number" min="0" max="60" class="inputstyle" name = "3em">分
+			<hr width=95% size=2 color=#FFFFFF>		
+			禮拜四：<input type="number" min="7" max="20" class="inputstyle" name = "4sh">時<input type="number" min="0" max="60" class="inputstyle" name = "4sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name = "4eh">時<input type="number" min="0" max="60" class="inputstyle" name = "4em">分
+			<hr width=95% size=2 color=#FFFFFF>		
+			禮拜五：<input type="number" min="7" max="20" class="inputstyle" name = "5sh">時<input type="number" min="0" max="60" class="inputstyle" name = "5sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name = "5eh">時<input type="number" min="0" max="60" class="inputstyle" name = "5em">分
+			<hr width=95% size=2 color=#FFFFFF>
+			禮拜六：<input type="number" min="7" max="20" class="inputstyle" name = "6sh">時<input type="number" min="0" max="60" class="inputstyle" name = "6sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name = "6eh">時<input type="number" min="0" max="60" class="inputstyle" name = "6em">分
+			<hr width=95% size=2 color=#FFFFFF>
+			禮拜日：<input type="number" min="7" max="20" class="inputstyle" name = "7sh">時<input type="number" min="0" max="60" class="inputstyle" name = "7sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name = "7eh">時<input type="number" min="0" max="60" class="inputstyle" name = "7em">分
+			<hr width=95% size=1 color=#FFFFFF>
 			<input type="submit" value="送出表單" class = "stylehead">
+			</form>			
 		</div>
 	</div>
 </body>
