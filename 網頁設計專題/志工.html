@@ -1,36 +1,79 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8"></meta>
-	<title>志工表單</title>
-	<style type="text/css">
-	.head{
-		background-color:#2B3C49;color:white;font-weight:bold;font-size:30px;margin:0px;text-align:center;padding:10px
-	}
-	.content{
-		position:absolute;left:200px;right:200px;bottom:0px;
-		width:1000px;margin-left:auto;margin-right:auto;background-color:#FFFFFF;height:875px;margin:0px auto;
-	}
-	body{
-	font-size:16px;font-family:"微軟正黑體"
-	}
-	input:focus{
-		border:2px solid #ff0000;
-	}
-	.inputstyle{
-		height:25px;font-size:20px
-	}
-	.stylehead{
-		font-weight:bold;font-size:20px;font-family:"微軟正黑體"
-	}
-	.stylehead2{
-		text-align:center;font-weight:bold;font-size:30px;font-family:"微軟正黑體"
-	}
-	.style1{font-weight:bold;font-size:20px;text-align:center}
-	.style2{text-align:center}
-	.style3{height:400px;width:400px;padding:10px;border:5px dashed blue;margin-top:10px;margin-bottom:10px}
-	</style>
-	<script>
+    <meta charset="utf-8"></meta>
+    <title>志工表單</title>
+    <style type="text/css">
+        .head {
+            background-color: #2B3C49;
+            color: white;
+            font-weight: bold;
+            font-size: 30px;
+            margin: 0px;
+            text-align: center;
+            padding: 10px
+        }
+
+        .content {
+            position: absolute;
+            left: 200px;
+            right: 200px;
+            bottom: 0px;
+            width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #FFFFFF;
+            height: 875px;
+            margin: 0px auto;
+        }
+
+        body {
+            font-size: 16px;
+            font-family: "微軟正黑體"
+        }
+
+        input:focus {
+            border: 2px solid #ff0000;
+        }
+
+        .inputstyle {
+            height: 25px;
+            font-size: 20px
+        }
+
+        .stylehead {
+            font-weight: bold;
+            font-size: 20px;
+            font-family: "微軟正黑體"
+        }
+
+        .stylehead2 {
+            text-align: center;
+            font-weight: bold;
+            font-size: 30px;
+            font-family: "微軟正黑體"
+        }
+
+        .style1 {
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center
+        }
+
+        .style2 {
+            text-align: center
+        }
+
+        .style3 {
+            height: 400px;
+            width: 400px;
+            padding: 10px;
+            border: 5px dashed blue;
+            margin-top: 10px;
+            margin-bottom: 10px
+        }
+    </style>
+    <script>
 		function validatenameForm() {
 			var vname = document.forms["myForm"]["fname"].value;
 			var vyear = document.forms["myForm"]["year"].value;
@@ -107,55 +150,55 @@
 			alert("姓名: " + vname  + " 生日: " + vyear + " 年 " + vmonth + " 月 " + vday + " 日 性別：" + vsex  + "\n身分證字號 : " + vpersonid + " 單位名稱 : " + vworkplace + "\n單位電話 : " + vcompany +" 住家電話 : "+ vhome +" 手機 : "+ vcellphone +"\n郵遞區號 : "+ vpostid +" 通訊地址 : " + vaddress);
 			return false;
 		}
-	</script>
+    </script>
 </head>
 <body style="margin:0px;background-color:#BDBDBD">
 
-	<div class="head";">志工表單</div>
-	
-	<div class = "content">
-		<div class="style2">
-			<hr width=95% size=2 color=#FFFFFF>
-			<div class = "stylehead2">基本資料 :</div>
-			<hr width=95% size=2 color=#FFFFFF>
-			<form name="myForm" action="test.php" onsubmit="return validatenameForm()" method="post" class = "stylehead"> 姓名：<input type="text" name="fname" maxlength="3" size = "10" class="inputstyle">
-			出生日期：<input type="number" min="1800" max="2018" class="inputstyle" name = "year">年
-			<input type="number" min="1" max="12" class="inputstyle" name = "month">月
-			<input type="number" min="1" max="31" class="inputstyle" name = "day">日 
-			<hr width=95% size=1 color=#FFFFFF>
-			性別：<select name="Yoursex" class = "stylehead">
-　					<option value="male" class = "stylehead" name = "male">男</option>
-　					<option value="weman" class = "stylehead" name = "weman">女</option>
-				  </select> 
-			身分證字號 <input type="text" maxlength="10" size = "35" class="inputstyle" name = "personid">
-			<hr width=95% size=1 color=#FFFFFF>
-			學校或單位名稱：<input type="text"  maxlength="20" size = "40" class="inputstyle" name = "workplace">
-			<hr width=95% size=0.5 color=#FFFFFF>
-			<div class = "stylehead2">聯絡電話 :</div>
-			<hr width=95% size=0.5 color=#FFFFFF>
-			相關單位(非必要)：<input type="text" class="inputstyle" maxlength="7" size = "10" name = "company"> 住家：<input type="text" class="inputstyle" maxlength="7" size = "10" name = "home"> 手機(非必要)：<input type="text" class="inputstyle" maxlength="10" size = "10" name = "cellphone">
-			<hr width=95% size=2 color=#FFFFFF>
-			郵遞區號：<input type="number" min="100" max="819" class="inputstyle" name = "postid"> 通訊地址：<input type="text" maxlength="50" size = "50" class="inputstyle" name = "address">
-			<hr width=95% size=0.5 color=#FFFFFF>
-			<div class = "stylehead2">可服務時段 :</div>
-			<hr width=95% size=0.5 color=#FFFFFF>
-			禮拜一：<input type="number" min="7" max="20" class="inputstyle" name = "1sh">時<input type="number" min="0" max="60" class="inputstyle" name = "1sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name = "1eh">時<input type="number" min="0" max="60" class="inputstyle" name = "1em">分
-			<hr width=95% size=2 color=#FFFFFF>
-			禮拜二：<input type="number" min="7" max="20" class="inputstyle" name = "2sh">時<input type="number" min="0" max="60" class="inputstyle" name = "2sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name = "2eh">時<input type="number" min="0" max="60" class="inputstyle" name = "2em">分
-			<hr width=95% size=2 color=#FFFFFF>
-			禮拜三：<input type="number" min="7" max="20" class="inputstyle" name = "3sh">時<input type="number" min="0" max="60" class="inputstyle" name = "3sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name = "3eh">時<input type="number" min="0" max="60" class="inputstyle" name = "3em">分
-			<hr width=95% size=2 color=#FFFFFF>		
-			禮拜四：<input type="number" min="7" max="20" class="inputstyle" name = "4sh">時<input type="number" min="0" max="60" class="inputstyle" name = "4sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name = "4eh">時<input type="number" min="0" max="60" class="inputstyle" name = "4em">分
-			<hr width=95% size=2 color=#FFFFFF>		
-			禮拜五：<input type="number" min="7" max="20" class="inputstyle" name = "5sh">時<input type="number" min="0" max="60" class="inputstyle" name = "5sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name = "5eh">時<input type="number" min="0" max="60" class="inputstyle" name = "5em">分
-			<hr width=95% size=2 color=#FFFFFF>
-			禮拜六：<input type="number" min="7" max="20" class="inputstyle" name = "6sh">時<input type="number" min="0" max="60" class="inputstyle" name = "6sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name = "6eh">時<input type="number" min="0" max="60" class="inputstyle" name = "6em">分
-			<hr width=95% size=2 color=#FFFFFF>
-			禮拜日：<input type="number" min="7" max="20" class="inputstyle" name = "7sh">時<input type="number" min="0" max="60" class="inputstyle" name = "7sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name = "7eh">時<input type="number" min="0" max="60" class="inputstyle" name = "7em">分
-			<hr width=95% size=1 color=#FFFFFF>
-			<input type="submit" value="送出表單" class = "stylehead">
-			</form>			
-		</div>
-	</div>
+    <div class="head" ;">志工表單</div>
+    <div class="content">
+        <div class="style2">
+            <hr width=95% size=2 color=#FFFFFF>
+            <div class="stylehead2">基本資料 :</div>
+            <hr width=95% size=2 color=#FFFFFF>
+            <form name="myForm" action="test.php" onsubmit="return validatenameForm()" method="post" class="stylehead">
+                姓名：<input type="text" name="fname" maxlength="3" size="10" class="inputstyle">
+                出生日期：<input type="number" min="1800" max="2018" class="inputstyle" name="year">年
+                <input type="number" min="1" max="12" class="inputstyle" name="month">月
+                <input type="number" min="1" max="31" class="inputstyle" name="day">日
+                <hr width=95% size=1 color=#FFFFFF>
+                性別：<select name="Yoursex" class="stylehead">
+                    <option value="male" class="stylehead" name="male">男</option>
+                    <option value="weman" class="stylehead" name="weman">女</option>
+                </select>
+                身分證字號 <input type="text" maxlength="10" size="35" class="inputstyle" name="personid">
+                <hr width=95% size=1 color=#FFFFFF>
+                學校或單位名稱：<input type="text" maxlength="20" size="40" class="inputstyle" name="workplace">
+                <hr width=95% size=0.5 color=#FFFFFF>
+                <div class="stylehead2">聯絡電話 :</div>
+                <hr width=95% size=0.5 color=#FFFFFF>
+                相關單位(非必要)：<input type="text" class="inputstyle" maxlength="7" size="10" name="company"> 住家：<input type="text" class="inputstyle" maxlength="7" size="10" name="home"> 手機(非必要)：<input type="text" class="inputstyle" maxlength="10" size="10" name="cellphone">
+                <hr width=95% size=2 color=#FFFFFF>
+                郵遞區號：<input type="number" min="100" max="819" class="inputstyle" name="postid"> 通訊地址：<input type="text" maxlength="50" size="50" class="inputstyle" name="address">
+                <hr width=95% size=0.5 color=#FFFFFF>
+                <div class="stylehead2">可服務時段 :</div>
+                <hr width=95% size=0.5 color=#FFFFFF>
+                禮拜一：<input type="number" min="7" max="20" class="inputstyle" name="1sh">時<input type="number" min="0" max="60" class="inputstyle" name="1sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name="1eh">時<input type="number" min="0" max="60" class="inputstyle" name="1em">分
+                <hr width=95% size=2 color=#FFFFFF>
+                禮拜二：<input type="number" min="7" max="20" class="inputstyle" name="2sh">時<input type="number" min="0" max="60" class="inputstyle" name="2sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name="2eh">時<input type="number" min="0" max="60" class="inputstyle" name="2em">分
+                <hr width=95% size=2 color=#FFFFFF>
+                禮拜三：<input type="number" min="7" max="20" class="inputstyle" name="3sh">時<input type="number" min="0" max="60" class="inputstyle" name="3sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name="3eh">時<input type="number" min="0" max="60" class="inputstyle" name="3em">分
+                <hr width=95% size=2 color=#FFFFFF>
+                禮拜四：<input type="number" min="7" max="20" class="inputstyle" name="4sh">時<input type="number" min="0" max="60" class="inputstyle" name="4sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name="4eh">時<input type="number" min="0" max="60" class="inputstyle" name="4em">分
+                <hr width=95% size=2 color=#FFFFFF>
+                禮拜五：<input type="number" min="7" max="20" class="inputstyle" name="5sh">時<input type="number" min="0" max="60" class="inputstyle" name="5sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name="5eh">時<input type="number" min="0" max="60" class="inputstyle" name="5em">分
+                <hr width=95% size=2 color=#FFFFFF>
+                禮拜六：<input type="number" min="7" max="20" class="inputstyle" name="6sh">時<input type="number" min="0" max="60" class="inputstyle" name="6sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name="6eh">時<input type="number" min="0" max="60" class="inputstyle" name="6em">分
+                <hr width=95% size=2 color=#FFFFFF>
+                禮拜日：<input type="number" min="7" max="20" class="inputstyle" name="7sh">時<input type="number" min="0" max="60" class="inputstyle" name="7sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name="7eh">時<input type="number" min="0" max="60" class="inputstyle" name="7em">分
+                <hr width=95% size=1 color=#FFFFFF>
+                <input type="submit" value="送出表單" class="stylehead">
+            </form>
+        </div>
+    </div>
 </body>
 </html>

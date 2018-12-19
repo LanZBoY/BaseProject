@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>購買頁面</title>
+    <style type="text/css">
+        .head {
+            background-color: #2B3C49;
+            color: white;
+            font-weight: bold;
+            font-size: 30px;
+            margin: 0px;
+            text-align: center;
+            padding: 10px
+        }
+
+        .content {
+            position: absolute;
+            left: 200px;
+            right: 200px;
+            bottom: 0px;
+            width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #FFFFFF;
+            height: 875px;
+            margin: 0px auto;
+        }
+
+        body {
+            font-size: 16px;
+            font-family: "微軟正黑體"
+        }
+
+        input:focus {
+            border: 2px solid #ff0000;
+        }
+
+        .inputstyle {
+            height: 25px;
+            font-size: 20px
+        }
+
+        .stylehead {
+            font-weight: bold;
+            font-size: 20px;
+            font-family: "微軟正黑體"
+        }
+
+        .stylehead2 {
+            text-align: center;
+            font-weight: bold;
+            font-size: 30px;
+            font-family: "微軟正黑體"
+        }
+
+        .style1 {
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center
+        }
+
+        .style2 {
+            text-align: center
+        }
+
+        .style3 {
+            height: 400px;
+            width: 400px;
+            padding: 10px;
+            border: 5px dashed blue;
+            margin-top: 10px;
+            margin-bottom: 10px
+        }
+    </style>
+    <script>
+		function validatenameForm() {
+			var vname = document.forms["myForm"]["fname"].value;
+		}
+    </script>
+</head>
+<body style="margin:0px;background-color:#BDBDBD">
+    <div class="head">購買選項</div>
+    <div class="content">
+        <div class="style2">
+            <hr width=95% size=2 color=#FFFFFF>
+            <div class="stylehead2">基本資料</div>
+            <hr width=95% size=2 color=#000000>
+            <form name="myForm" action="test.php" onsubmit="return validatenameForm()" method="post" class="stylehead">
+                姓名：<input type="text" name="fname" maxlength="3" size="10" class="inputstyle"><br><br>
+                購買商品名稱：<select name="ProductName" class="stylehead">
+                    <option value="Product-1" class="stylehead" name="male">台灣特色產品-紅麴御醬三味</option>
+                    <option value="Product-2" class="stylehead" name="weman">台灣特色產品-漆器</option>
+                    <option value="Product-3" class="stylehead" name="weman">台灣特色產品-桐花陶茶具</option>
+                </select><br><br>
+                商品數量：<input type="number" min="1" max="99999" class="inputstyle" name="count">個<br><br>
+                <hr width=95% size=1 color=#FFFFFF>
+                <div class="stylehead2">聯絡資訊</div>
+                <hr width=95% size=1 color=#FFFFFF>
+                相關單位(非必要)：<input type="text" class="inputstyle" maxlength="7" size="10" name="company"> 住家：<input type="text" class="inputstyle" maxlength="7" size="10" name="home"> 手機：<input type="text" class="inputstyle" maxlength="10" size="10" name="cellphone">
+                <hr width=95% size=2 color=#FFFFFF>
+                郵遞區號：<input type="number" min="100" max="819" class="inputstyle" name="postid"> 通訊地址：<input type="text" maxlength="50" size="50" class="inputstyle" name="address">
+                <hr width=95% size=2 color=#FFFFFF>
+                <input type="submit" value="送出" class="stylehead">
+            </form>
+        </div>
+     </div>
+
+</body>
+</html>
