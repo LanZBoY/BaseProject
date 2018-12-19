@@ -2,6 +2,17 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <meta charset="utf-8" />
     <title>購買頁面</title>
     <style type="text/css">
@@ -75,15 +86,16 @@
         }
     </style>
     <script>
-		function validatenameForm() {
-			var vname = document.forms["myForm"]["fname"].value;
-		}
+        function validatenameForm() {
+            var vname = document.forms["myForm"]["fname"].value;
+        }
     </script>
 </head>
 <body style="margin:0px;background-color:#BDBDBD">
     <div class="head">購買選項</div>
     <div class="content">
         <div class="style2">
+            
             <hr width=95% size=2 color=#FFFFFF>
             <div class="stylehead2">基本資料</div>
             <hr width=95% size=2 color=#000000>
@@ -103,9 +115,10 @@
                 郵遞區號：<input type="number" min="100" max="819" class="inputstyle" name="postid"> 通訊地址：<input type="text" maxlength="50" size="50" class="inputstyle" name="address">
                 <hr width=95% size=2 color=#FFFFFF>
                 <input type="submit" value="送出" class="stylehead">
+                <button type="button" onclick="javascript:location.href='主畫面.html'" class="stylehead">回首頁</button>
             </form>
         </div>
-     </div>
+    </div>
 
 </body>
 </html>

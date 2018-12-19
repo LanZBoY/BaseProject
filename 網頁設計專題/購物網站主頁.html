@@ -4,28 +4,6 @@
 <head>
     <meta charset="utf-8" />
     <title>偏鄉居民購物網站</title>
-    <style>
-        h1 {
-            font-size: 50px;
-            color: Chartreuse;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: 20px;
-        }
-
-        p {
-            font-size: 15px;
-        }
-        nav {
-            text-align: center;
-        }
-
-        table, th, td {
-            border: 1px solid black;
-        }
-    </style>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
@@ -37,6 +15,30 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <style>
+        h1 {
+            font-size: 50px;
+            color: Chartreuse;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 15px;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
     <div style="width:1500px;height:120px"><h1>購物網站</h1></div>
@@ -77,16 +79,20 @@
             </form>
             <div class="btn-group btn-group-sm" style="width:0px">
                 <button type="button" class="btn btn-link" style="position:relative;top:50px;right:0px">忘記密碼</button>
-                <button type="button" class="btn btn-link" style="position:relative;top:50px;right:5px">加入會員</button>
+                <button type="button" onclick="javascript:location.href='建立帳戶介面.html'" class="btn btn-link" style="position:relative;top:50px;right:5px">加入會員</button>
                 <button type="button" class="btn btn-primary" style="position:relative;top:50px;right:-1px">登入</button>
             </div>
         </div>
     </div>
-
+    <nav>
+        <a href="購物網站主頁.html">購買商品</a> |
+        <a href="購買方法.html">購買方法</a> |
+        <a href="聯絡我們.html">聯絡我們</a>
+    </nav>
     <table align=center>
         <tr>
-            <th style="font-size:20px">商品名稱</th>
-            <th style="font-size:20px">商品圖片</th>
+            <th style="font-size:20px "><h2>商品名稱</h2></th>
+            <th style="font-size:20px"><h2>商品圖片</h2></th>
         </tr>
         <tr>
             <th width="600" style="vertical-align:top">
@@ -94,7 +100,7 @@
                 <p>
                     以台灣自產紅麴、辣椒、洋蔥搭配非基因黃豆，採用屏東六堆內埔地區客家特有釀造工法，自然熟成經由120天的手工純釀，保有六堆客家獨特風味、甘甜香醇 !!
                 </p>
-                <input type="button" onclick="javascript:location.href='購買頁面.html' " value="前往購買頁面">
+                <input type="button" onclick="javascript:location.href='購買頁面.html' " value="前往購買頁面"  style="width:200px;height:40px;font-size:20px;">
             </th>
             <th><img src="src/fa0c9afbc42a36419b8ab583efc4ade3.jpg" width="600" height="400"></th>
         </tr>
@@ -104,7 +110,7 @@
                 <p>
                     台中豐原曾是台灣漆器的外銷重鎮，整個豐原都是漆器廠。漆器工藝發展奠基於日治時期，由日本匠師來台教授工法；1969到1989為豐原漆器的黃金時期，一年外銷產值可高達6億多。
                 </p>
-                <input type="button" onclick="javascript:location.href='購買頁面.html'" value="前往購買頁面">
+                <input  type="button" onclick="javascript:location.href='購買頁面.html'" value="前往購買頁面"  style="width:200px;height:40px;font-size:20px;">
             </th>
             <th><img src="src/49b48bb919c29.jpg" width="600" height="400"></th>
         </tr>
@@ -114,7 +120,7 @@
                 <p>
                     油桐樹遍植全臺灣島、每年初夏、到處都可欣賞到油桐花開、油桐花又名五月雪、每年到了五月為油桐花盛開、風輕輕一吹、花瓣就掉下來、就像下雪一樣! 油桐花之圖出自於工筆畫莊桂珠老師之手、莊桂珠老師出生於楊梅客家庄、對油桐花之情可見於作品之中。 此款油桐花開係列為新研發，花紋採立體浮雕設計~別具美感。
                 </p>
-                <input type="button" onclick="javascript:location.href='購買頁面.html'" value="前往購買頁面">
+                <input type="button" onclick="javascript:location.href='購買頁面.html'" value="前往購買頁面"  style="width:200px;height:40px;font-size:20px;">
             <th><img src="src/49b4c5eb01986.jpg" width="600" height="400"></th>
         </tr>
     </table>
