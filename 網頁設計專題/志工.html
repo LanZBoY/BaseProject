@@ -88,6 +88,12 @@
 			var vpostid = document.forms["myForm"]["postid"].value;
 			var vaddress = document.forms["myForm"]["address"].value;
 			var special = 0;
+			var firstday = document.forms["myForm"]["1d"].value;
+			var secday = document.forms["myForm"]["2d"].value;
+			var thirdday = document.forms["myForm"]["3d"].value;
+			var fourthday = document.forms["myForm"]["4d"].value;
+			var fivday = document.forms["myForm"]["5d"].value;
+			var saturday = document.forms["myForm"]["6d"].value;
 			if (vname == "") {
 				alert("名字不可為空");
 				return false;
@@ -111,9 +117,15 @@
 				alert("日期不可為空");
 				return false;
 			}
-			if (vmonth== 2&& vday > 28 && special!=1) {
+			if (vmonth == 2 && vday > 28 && special!=1) {
 				alert("日期錯誤");
 				return false;
+			}
+			if (vmonth == 2 || vmonth == 4 ||vmonth == 6 || vmonth == 9 || vmonth == 11) {
+				if(vday>30){
+					alert("日期錯誤");
+					return false;
+				}
 			}
 			if (vsex == "male") {
 				vsex = "男";
@@ -125,6 +137,10 @@
 				alert("身分證字號不可為空");
 				return false;
 			}
+			if(vpersonid.length<10){
+				alert("身分證格式不正確");
+				return false;
+			}
 			if (vworkplace == "") {
 				alert("單位名稱不可為空");
 				return false;
@@ -132,12 +148,24 @@
 			if (vcompany== "") {
 				vcellphone = "無";
 			}
+			if(vcompany.length<7){
+				alert("單位電話格式不正確");
+				return false;
+			}
 			if (vhome == "") {
 				alert("住家電話不可為空");
 				return false;
 			}
+			if(vhome.length<7){
+				alert("住家電話格式不正確");
+				return false;
+			}
 			if (vcellphone == "") {
 				vcellphone = "無";
+			}
+			if(vcellphone.length<9){
+				alert("手機格式不正確");
+				return false;
 			}
 			if (vpostid == "") {
 				alert("郵遞區號不可為空");
@@ -147,7 +175,19 @@
 				alert("通訊地址不可為空");
 				return false;
 			}
-			alert("姓名: " + vname  + " 生日: " + vyear + " 年 " + vmonth + " 月 " + vday + " 日 性別：" + vsex  + "\n身分證字號 : " + vpersonid + " 單位名稱 : " + vworkplace + "\n單位電話 : " + vcompany +" 住家電話 : "+ vhome +" 手機 : "+ vcellphone +"\n郵遞區號 : "+ vpostid +" 通訊地址 : " + vaddress);
+			if(firstday=="沒空"&&secday=="沒空"&&thirdday=="沒空"&&fourthday=="沒空"&&fivday=="沒空"&&saturday=="沒空"){
+				alert("至少填入一天的時段");
+				return false;
+			}
+			var check = confirm("姓名: " + vname  + " 生日: " + vyear + " 年 " + vmonth + " 月 " + vday + " 日 性別：" + vsex  + "\n身分證字號 : " + vpersonid + " 單位名稱 : " + vworkplace + "\n單位電話 : " + vcompany +" 住家電話 : "+ vhome +" 手機 : "+ vcellphone +"\n郵遞區號 : "+ vpostid +" 通訊地址 : " + vaddress
+			+"\n可服務時段為: \n禮拜一 :" + firstday + "\n禮拜二 :" + secday + "\n禮拜三 :" + thirdday + "\n禮拜四 :" + fourthday + "\n禮拜五 :" + fivday + "\n禮拜六 :" + saturday);
+			if(check==true){
+				alert("表單確認完成 回到主頁");
+				javascript:location.href='主畫面.html'
+			}
+			else{
+				alert("取消送出表單 停留在該頁面");
+			}
 			return false;
 		}
     </script>
@@ -157,46 +197,115 @@
     <div class="head" ;">志工表單</div>
     <div class="content">
         <div class="style2">
+		
             <hr width=95% size=2 color=#FFFFFF>
+			
             <div class="stylehead2">基本資料 :</div>
+			
             <hr width=95% size=2 color=#FFFFFF>
+			
+			
+			
             <form name="myForm" action="test.php" onsubmit="return validatenameForm()" method="post" class="stylehead">
+			
                 姓名：<input type="text" name="fname" maxlength="3" size="10" class="inputstyle">
-                出生日期：<input type="number" min="1800" max="2018" class="inputstyle" name="year">年
+				
+                出生日期：
+				<input type="number" min="1800" max="2018" class="inputstyle" name="year">年
                 <input type="number" min="1" max="12" class="inputstyle" name="month">月
                 <input type="number" min="1" max="31" class="inputstyle" name="day">日
+				
                 <hr width=95% size=1 color=#FFFFFF>
-                性別：<select name="Yoursex" class="stylehead">
+				
+                性別：
+				<select name="Yoursex" class="stylehead">
                     <option value="male" class="stylehead" name="male">男</option>
                     <option value="weman" class="stylehead" name="weman">女</option>
                 </select>
+				
                 身分證字號 <input type="text" maxlength="10" size="35" class="inputstyle" name="personid">
+				
                 <hr width=95% size=1 color=#FFFFFF>
+				
                 學校或單位名稱：<input type="text" maxlength="20" size="40" class="inputstyle" name="workplace">
+				
                 <hr width=95% size=0.5 color=#FFFFFF>
+				
                 <div class="stylehead2">聯絡電話 :</div>
+				
+				
+				
                 <hr width=95% size=0.5 color=#FFFFFF>
-                相關單位(非必要)：<input type="text" class="inputstyle" maxlength="7" size="10" name="company"> 住家：<input type="text" class="inputstyle" maxlength="7" size="10" name="home"> 手機(非必要)：<input type="text" class="inputstyle" maxlength="10" size="10" name="cellphone">
+				
+                相關單位(非必要)：<input type="text" class="inputstyle" maxlength="7" size="10" name="company"> 
+				住家：<input type="text" class="inputstyle" maxlength="7" size="10" name="home"> 
+				手機(非必要)：<input type="text" class="inputstyle" maxlength="10" size="10" name="cellphone">
+				
                 <hr width=95% size=2 color=#FFFFFF>
-                郵遞區號：<input type="number" min="100" max="819" class="inputstyle" name="postid"> 通訊地址：<input type="text" maxlength="50" size="50" class="inputstyle" name="address">
+				
+                郵遞區號：<input type="number" min="100" max="819" class="inputstyle" name="postid"> 
+				通訊地址：<input type="text" maxlength="50" size="50" class="inputstyle" name="address">
+				
                 <hr width=95% size=0.5 color=#FFFFFF>
+				
                 <div class="stylehead2">可服務時段 :</div>
+				
+				
+				
                 <hr width=95% size=0.5 color=#FFFFFF>
-                禮拜一：<input type="number" min="7" max="20" class="inputstyle" name="1sh">時<input type="number" min="0" max="60" class="inputstyle" name="1sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name="1eh">時<input type="number" min="0" max="60" class="inputstyle" name="1em">分
-                <hr width=95% size=2 color=#FFFFFF>
-                禮拜二：<input type="number" min="7" max="20" class="inputstyle" name="2sh">時<input type="number" min="0" max="60" class="inputstyle" name="2sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name="2eh">時<input type="number" min="0" max="60" class="inputstyle" name="2em">分
-                <hr width=95% size=2 color=#FFFFFF>
-                禮拜三：<input type="number" min="7" max="20" class="inputstyle" name="3sh">時<input type="number" min="0" max="60" class="inputstyle" name="3sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name="3eh">時<input type="number" min="0" max="60" class="inputstyle" name="3em">分
-                <hr width=95% size=2 color=#FFFFFF>
-                禮拜四：<input type="number" min="7" max="20" class="inputstyle" name="4sh">時<input type="number" min="0" max="60" class="inputstyle" name="4sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name="4eh">時<input type="number" min="0" max="60" class="inputstyle" name="4em">分
-                <hr width=95% size=2 color=#FFFFFF>
-                禮拜五：<input type="number" min="7" max="20" class="inputstyle" name="5sh">時<input type="number" min="0" max="60" class="inputstyle" name="5sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name="5eh">時<input type="number" min="0" max="60" class="inputstyle" name="5em">分
-                <hr width=95% size=2 color=#FFFFFF>
-                禮拜六：<input type="number" min="7" max="20" class="inputstyle" name="6sh">時<input type="number" min="0" max="60" class="inputstyle" name="6sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name="6eh">時<input type="number" min="0" max="60" class="inputstyle" name="6em">分
-                <hr width=95% size=2 color=#FFFFFF>
-                禮拜日：<input type="number" min="7" max="20" class="inputstyle" name="7sh">時<input type="number" min="0" max="60" class="inputstyle" name="7sm">分 至 <input type="number" min="7" max="20" class="inputstyle" name="7eh">時<input type="number" min="0" max="60" class="inputstyle" name="7em">分
-                <hr width=95% size=1 color=#FFFFFF>
+				禮拜一：<select name="1d" class="stylehead">
+                    <option value="上午" class="stylehead" name="morning">上午9:00~11:00</option>
+                    <option value="中午" class="stylehead" name="midsun">中午11:00~13:00</option>
+					<option value="下午" class="stylehead" name="afternoon">下午13:00~15:00</option>
+					<option value="沒空" class="stylehead" name="none">沒空</option>
+                </select>
+				
+				<hr width=95% size=1 color=#FFFFFF>
+				禮拜二：<select name="2d" class="stylehead">
+                    <option value="上午" class="stylehead" name="morning">上午9:00~11:00</option>
+                    <option value="中午" class="stylehead" name="midsun">中午11:00~13:00</option>
+					<option value="下午" class="stylehead" name="afternoon">下午13:00~15:00</option>
+					<option value="沒空" class="stylehead" name="none">沒空</option>
+                </select>
+				
+				<hr width=95% size=1 color=#FFFFFF>
+				禮拜三：<select name="3d" class="stylehead">
+                    <option value="上午" class="stylehead" name="morning">上午9:00~11:00</option>
+                    <option value="中午" class="stylehead" name="midsun">中午11:00~13:00</option>
+					<option value="下午" class="stylehead" name="afternoon">下午13:00~15:00</option>
+					<option value="沒空" class="stylehead" name="none">沒空</option>
+                </select>
+				
+				<hr width=95% size=1 color=#FFFFFF>
+				禮拜四：<select name="4d" class="stylehead">
+                    <option value="上午" class="stylehead" name="morning">上午9:00~11:00</option>
+                    <option value="中午" class="stylehead" name="midsun">中午11:00~13:00</option>
+					<option value="下午" class="stylehead" name="afternoon">下午13:00~15:00</option>
+					<option value="沒空" class="stylehead" name="none">沒空</option>
+                </select>
+				
+				<hr width=95% size=1 color=#FFFFFF>
+				禮拜五：<select name="5d" class="stylehead">
+                    <option value="上午" class="stylehead" name="morning">上午9:00~11:00</option>
+                    <option value="中午" class="stylehead" name="midsun">中午11:00~13:00</option>
+					<option value="下午" class="stylehead" name="afternoon">下午13:00~15:00</option>
+					<option value="沒空" class="stylehead" name="none">沒空</option>
+                </select>
+				
+				<hr width=95% size=1 color=#FFFFFF>
+				禮拜六：<select name="6d" class="stylehead">
+                    <option value="上午" class="stylehead" name="morning">上午9:00~11:00</option>
+                    <option value="中午" class="stylehead" name="midsun">中午11:00~13:00</option>
+					<option value="下午" class="stylehead" name="afternoon">下午13:00~15:00</option>
+					<option value="沒空" class="stylehead" name="none">沒空</option>
+                </select>
+				
+				<hr width=95% size=10 color=#FFFFFF>
+				
+				
                 <input type="submit" value="送出表單" class="stylehead">
+				
+				
                 <button type="button" onclick="javascript:location.href='主畫面.html'" class="stylehead">回首頁</button>
             </form>
         </div>
