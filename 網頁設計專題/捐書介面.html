@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 	<meta charset = "utf-8"/>
@@ -22,6 +22,7 @@
 			font-size:16px;
 			font-family:Microsoft JhengHei;
 			margin:0px;
+			background-image:url(786034.jpg);
 		}
 		.header
 		{
@@ -41,14 +42,24 @@
 		{
 			text-align:center;
 			background-color:#8ca3aa;
+			background-image:url(786034.jpg);
+		}
+		.normalback
+		{
+			text-align:center;
+			width:1920px;
+			margin:0px auto;
 		}
 		.middleback
 		{
 			text-align:center;
 			width:1000px;
-			height:1080px;
+			height:3600px;
 			background-color:#CED8DB;
 			margin:0px auto;
+			opacity:0.6;
+			display:inline-block;
+			vertical-align:top;
 		}
 		.btline
 		{
@@ -82,14 +93,129 @@
 			background: -moz-linear-gradient(#003344,#8ca3aa);
 			background: linear-gradient(#003344,#8ca3aa);
 		}
+		.lside
+		{
+			text-align:center;
+			width:400px;
+			height:3600px;
+			margin:0px auto;
+			display:inline-block;
+			vertical-align:top;
+			position:relative; left:-25px;
+		}
+		.rside
+		{
+			text-align:center;
+			width:400px;
+			height:3600px;
+			margin:0px auto;
+			display:inline-block;
+			vertical-align:top;
+			position:relative; right:-25px;
+		}
+		.information
+		{
+			position:relative; top:20px;
+			height:500px;
+			width:400px;
+			background:#587A84;
+			border-radius:20px;
+			opacity:0.8;
+			font-size:30px;
+			color:#FFFFFF;
+		}
+		.inbox
+		{
+			position:relative; top:40px;
+			width:400px;
+			background:#587A84;
+			border-radius:10px;
+			text-align:center;
+			opacity:0.8;
+			font-size:30px;
+			color:#FFFFFF;
+		}
+		.log
+		{
+			position:relative; right:-35px; top:50px;
+			height:500px;
+			width:400px;
+			background:#CED8DB;
+			border-radius:5% 5% 5% 5%;
+			text-align:center;
+			opacity:0.6;
+		}
+		.textype
+		{
+			color:white;
+			font-size:30px;
+		}
 	</style>
 	
-	<script type = "text/javascript">
-		
+	<script language="JavaScript">
+		function ShowTime(){
+		　var NowDate=new Date();
+		　var h=NowDate.getHours();
+		　var m=NowDate.getMinutes();
+		　var s=NowDate.getSeconds();　
+		　document.getElementById('showbox').innerHTML = h+'時'+m+'分'+s+'秒';
+		　setTimeout('ShowTime()',1000);
+		}
+	</script>
+	<script>
+		function login()
+		{
+            var account = document.forms["mylogin"]["account"].value;
+            var password = document.forms["mylogin"]["password"].value;
+            var islogin = false;
+            var index = 0;
+            var x = document.getElementById("unlog");
+            var y = document.getElementById("unlog2");
+            var z = document.getElementById("islog");
+            var q = document.getElementById("show");
+            var info = [];
+            info[0] = { username: "周先生", account: "test", passowrd: "test" }
+            info[1] = { username: "尤小姐", account: "d0683190", passowrd: "880504" }
+            info[2] = { username: "性別騎士", account: "genderknight69", passowrd: "respectweman" }
+            info[3] = { username: "黑人", account: "white", passowrd: "only" }
+            info[4] = { username: "懷中出人才", account: "whyzong", passowrd: "truezencie" }
+            for (var i = 0; i < info.length; i++)
+			{
+                if (account == info[i].account && password == info[i].passowrd)
+				{
+                    index = i;
+                    islogin = true;
+                }
+            }
+            var messenger = "你好！" + info[index].username + " 歡迎登入本站！"
+			var rID = info[index].username;
+			var racc = info[index].account;
+            if (islogin)
+			{
+                x.style.display = "none";
+                y.style.display = "none";
+                q.innerHTML = messenger;
+                z.style.display = "block";
+                
+                alert("你好！ " + info[index].username + " 歡迎登入本網站！\n登入成功！");
+            }
+            else
+			{
+                alert("登入失敗！\n請確認你的帳號或密碼無誤！");
+            }
+        }
+		function logout() {
+            var x = document.getElementById("unlog");
+            var y = document.getElementById("unlog2");
+            var z = document.getElementById("islog");
+            x.style.display = "block";
+            y.style.display = "block";
+            z.style.display = "none";
+        }
 	</script>
 </head>
 
-<body>
+<body onload="ShowTime()">
 	<div class = "header">線上捐書填報系統</div>
 	<div class = "btline">
 		<button id = "btn"	onclick="javascript:location.href='主畫面.html'">回到首頁</button>
@@ -100,14 +226,43 @@
 		<button id = "btn"	onclick="javascript:location.href='購物網站主頁.html'">購物網站</button>
 	</div>
 	<div class = "fullback">
-		
-		<div class = "middleback">
-			<form>
-				
-			</form>
+		<div class = "normalback">
+			<div class = "lside">
+				<div class = "information">
+					<!--未登入區塊-->
+					<div id = "unlog">
+						<form name = "mylogin">
+						<br/>帳號：<input style="font-size:20px;width:200px;height:35px" type="text" name="account" placeholder="輸入帳號"/><br/>
+						密碼：<input style="font-size:20px;width:200px;height:35px" type="text" name="password" placeholder="輸入密碼"/>
+						</form>
+					</div>
+					<div id="unlog2">
+						<input type="submit" class="btn btn-primary" onclick="login()" style = "position:relative; left:-40px;" value="登入">
+						<button type="button" onclick="javascript:location.href='建立帳戶介面.html'" class="btn btn-link" style = "margin:0px; padding:0px;">加入會員</button>
+						<button type="button" onclick="javascript:location.href='忘記密碼及修改帳號.html'" class="btn btn-link" style = "margin:0px; padding:0px;">忘記密碼</button>
+					</div>
+					<!--登入區塊-->
+					<div id="islog" style="display:none">
+						<br/>
+						<p id="show"></p>
+						<input type="submit" class="btn btn-primary" onclick="logout()" style="position:relative; left:-160px;" value="登出">
+					</div>
+				</div>
+				<div class = "inbox">
+					現在時間：<span id = "showbox"></span>
+				</div>
+			</div>
+			<div class = "middleback">
+				<form>
+					
+				</form>
+			</div>
+			<div class = "rside">
+			</div>
 		</div>
 		
 	</div>
+	
 </body>
 
 </html>
