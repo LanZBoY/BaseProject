@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>密碼修改與忘記密碼</title>
+    <meta charset="utf-8">
+    <script>
+        var info = [];
+        info[0] = { username: "周先生", account: "test", passowrd: "test" }
+        info[1] = { username: "尤小姐", account: "d0683190", passowrd: "880504" }
+        info[2] = { username: "性別騎士", account: "genderknight69", passowrd: "respectweman" }
+        info[3] = { username: "黑人", account: "white", passowrd: "only" }
+        info[4] = { username: "懷中出人才", account: "whyzong", passowrd: "truezencie" }
+
+        /*尋找密碼*/
+        function search_password() {
+            var ooform = document.forms['acc'];
+            var account = ooform.elements['account'].value;
+            var password;
+            for (var i = 0; i < info.length; i++) {
+                if (account == info[i].account) {
+                    password = info[i].passowrd;
+                    alert('您的密碼為:' + password);
+                }
+            }
+        }
+
+        /*更改密碼*/
+        function modify() {
+            var form = document.forms['form'];
+            var account = form.elements['account'].value;
+            var password = form.elements['password'].value;
+            var newpassword = form.elements['newpassword'].value;
+            for (var i = 0; i < info.length; i++) {
+                if (account == info[i].account && password == info[i].passowrd) {
+                    info[i].passowrd = newpassword;
+                    alert('更正後的密碼為:' + info[i].passowrd);
+                }
+            }
+        }
+        /*確認新密碼與第二次輸入相同*/
+        function double_check() {
+            var form = document.forms['form'];
+            var newpassword = form.elements['newpassword'].value;
+            var password2 = form.elements['password2'].value;
+            if (newpassword == password2) {
+                modify();
+            }
+            else {
+                alert('兩次密碼輸入不一致');
+            }
+        }
+        /*確認帳號密碼是否真有其人*/
+        function real_check() {
+            var form = document.forms['form'];
+            var account = form.elements['account'].value;
+            var password = form.elements['password'].value;
+            for (var i = 0; i < info.length; i++) {
+                if (account == info[i].account && password == info[i].passowrd) {
+                    double_check();
+                    break;
+                }
+                else {
+                    alert('帳號密碼輸入錯誤!');
+                }
+            }
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <h1>忘記密碼</h1>
+    <form name='acc' id='acc'>
+        <p>
+            帳號:
+            <input type='text' name='account' id='account' size="25" maxlength="20" placeholder=" 請輸入帳號" />
+        </p>
+        </p>
+        <input type='button' name='submit' value='尋找密碼' onclick='search_password();' />
+    </form>
+    <h1>修改密碼</h1>
+    <form name='form' id='form'>
+        <p>
+            帳號:
+            <input type='text' name='account' id='account' size="25" maxlength="20" placeholder=" 請輸入帳號" />
+        </p>
+        <p>
+            密碼:
+            <input type='text' name='password' id='password' size="25" maxlength="20" placeholder=" 請輸入密碼" />
+        </p>
+        <p>
+            新密碼:
+            <input type='text' name='newpassword' id='newpassword' size="25" maxlength="20" placeholder=" 請輸入新密碼" />
+        </p>
+        <p>
+            再次輸入新密碼:
+            <input type='text' name='password2' id='password2' size="25" maxlength="20" placeholder=" 請再次輸入新密碼" />
+        </p>
+        <input type='button' name='submit' value='修改密碼' onclick='real_check();' />
+    </form>
+
+</body>
+
+</html>
