@@ -24,14 +24,7 @@
             text-align: center;
             padding: 10px;
         }
-        h1 {
-            background-color: #eeeeee;
-            color: blue;
-            font-weight: bold;
-            font-size: 30px;
-            text-align: center;
-            padding: 10px;
-        }
+
         h2{
             text-align:center;
             color:blue;
@@ -42,49 +35,107 @@
             top:0px;
             right:-500px;
         }
+        h1 {
+            font-size: 60px;
+            line-height: 120px;
+            color: blue;
+            text-align: center;
+        }
+
+        .container-fluid {
+            width: 1920px;
+            height: 50px;
+        }
+
+        .col-sm-1 {
+            height: 50px;
+            text-align: center;
+            font-size: 20px;
+            border: outset;
+            border-width: 2px;
+            text-align: center;
+            background: -webkit-linear-gradient(#008800,#CCFF99);
+            background: -o-linear-gradient(#008800,#CCFF99);
+            background: -moz-linear-gradient(#008800,#CCFF99);
+            background: linear-gradient(#008800,#CCFF99);
+            line-height: 50px;
+        }
+
+        .col-sm-2 {
+            height: 50px;
+            text-align: center;
+            font-size: 20px;
+            border: outset;
+            border-width: 2px;
+            text-align: center;
+            background: -webkit-linear-gradient(#008800,#CCFF99);
+            background: -o-linear-gradient(#008800,#CCFF99);
+            background: -moz-linear-gradient(#008800,#CCFF99);
+            background: linear-gradient(#008800,#CCFF99);
+            line-height: 50px;
+        }
+
+        .col-sm-4 {
+            height: 50px;
+            text-align: center;
+            font-size: 20px;
+            border: outset;
+            border-width: 2px;
+            text-align: center;
+            background: -webkit-linear-gradient(#008800,#CCFF99);
+            background: -o-linear-gradient(#008800,#CCFF99);
+            background: -moz-linear-gradient(#008800,#CCFF99);
+            background: linear-gradient(#008800,#CCFF99);
+            line-height: 50px;
+        }
+
+        .col-sm-6 {
+            height: 50px;
+            text-align: center;
+            font-size: 20px;
+            border: outset;
+            border-width: 2px;
+            text-align: center;
+            background: -webkit-linear-gradient(#008800,#CCFF99);
+            background: -o-linear-gradient(#008800,#CCFF99);
+            background: -moz-linear-gradient(#008800,#CCFF99);
+            background: linear-gradient(#008800,#CCFF99);
+            line-height: 50px;
+        }
+
+        a {
+            color: #E63F00;
+        }
     </style>
 </head>
-<body style="margin:0px;background-color:#eeeeee">
-    <div style="width:1500px;height:120px"><h1> 歡迎觀看每張照片的背後故事!</h1></div>
-
-    <div style="width:1500px;height:50px;background-color:#eeeeee">
-
-        <div class="row" style="background-color:#eeeeee">
-            <div class="col" style="background-color:rgb(255, 255, 255);height:30px"></div>
-            <div class="col" style="background-color:yellow; height:30px">
-                <div class="text-center"><a href="主畫面.html">回到首頁</a></div>
+<body style="margin:0px;background-color:#dddddd">
+    <div style="width:1920px;height:120px"><h1>偏鄉居民網站</h1></div>
+    <div class="container-fluid">
+        <div class="row">
+            <!--連結區塊-->
+            <div class="col-sm-1"><a href="主畫面.html">回到首頁</a></div>
+            <div class="col-sm-1"><a href="file:///C:/Users/Jay/shit/theme.html">影片欣賞</a></div>
+            <div class="col-sm-1"><a href="圖片.html">照片欣賞</a></div>
+            <div class="col-sm-1"><a href="志工.html">志工報名</a></div>
+            <div class="col-sm-1"><a href="捐書介面.html">我要捐書</a></div>
+            <div class="col-sm-1"><a href="購物網站主頁.html">購物網站</a></div>
+            <!--登入區塊-->
+            <!--未登入區塊-->
+            <div id="unlog" class="col-sm-4">
+                <form name="mylogin">
+                    帳號:<input style="font-size:9px;width:200px;height:30px" type="text" name="account" />
+                    密碼:<input style="font-size:9px;width:200px;height:30px" type="text" name="password" />
+                </form>
             </div>
-            <div class="col" style="background-color:orange;height:30px">
-                <div class="text-center"><a href="file:///C:/Users/Jay/shit/theme.html">影片欣賞</a></div>
+            <div id="unlog2" class="col-sm-2">
+                <input type="submit" class="btn btn-primary" onclick="login()" style="position:relative;right:-1px" value="登入">
+                <button type="button" onclick="javascript:location.href='建立帳戶介面.html'" class="btn btn-link" style="position:relative;right:5px">加入會員</button>
+                <button type="button" class="btn btn-link" style="position:relative;right:0px">忘記密碼</button>
             </div>
-            <div class="col" style="background-color:yellow;height:30px">
-                <div class="text-center"><a href="圖片.html">照片欣賞</a></div>
-            </div>
-            <div class="col" style="background-color:orange;height:30px">
-                <div class="text-center"><a href="志工.html">志工報名</a></div>
-            </div>
-            <div class="col" style="background-color:yellow;height:30px">
-                <div class="text-center"><a href="捐書介面.html">我要捐書</a></div>
-            </div>
-            <div class="col" style="background-color:orange;height:30px">
-                <div class="text-center"><a href="購物網站主頁.html">購物網站</a></div>
-            </div>
-        </div>
-    </div>
-
-    <div style="position: absolute;left:1515px;top:0px">
-        <div style="background-color:pink;width:200px;height:150px">
-            <form action="test.php" method="post" style="position:relative;top:10px">
-                帳號：<input type="text" name="UserName" style="width:140px"><br>
-            </form>
-
-            <form action="test.php" method="post" style="position:relative;top:20px">
-                密碼：<input type="text" name="UserName" style="width:140px"><br>
-            </form>
-            <div class="btn-group btn-group-sm" style="width:0px">
-                <button type="button" class="btn btn-link" style="position:relative;top:50px;right:0px">忘記密碼</button>
-                <button type="button" onclick="javascript:location.href='建立帳戶介面.html'" class="btn btn-link" style="position:relative;top:50px;right:5px">加入會員</button>
-                <button type="button" class="btn btn-primary" style="position:relative;top:50px;right:-1px">登入</button>
+            <!--登入區塊-->
+            <div id="islog" class="col-sm-6" style="display:none">
+                <p id="show"></p>
+                <input type="submit" class="btn btn-primary" onclick="logout()" style="position:absolute;right:200px;top:10px" value="登出">
             </div>
         </div>
     </div>
