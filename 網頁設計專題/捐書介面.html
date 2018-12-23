@@ -163,6 +163,9 @@
 			text-align:left;
 			position:relative; left:200px;
 		}
+		#islog_img{
+			display: none;
+		}
 	</style>
 	
 	<script language="JavaScript">
@@ -186,6 +189,7 @@
             var y = document.getElementById("unlog2");
             var z = document.getElementById("islog");
             var q = document.getElementById("show");
+			var qq = document.getElementById("show2");
             var info = [];
             info[0] = { username: "周先生", account: "test", passowrd: "test" }
             info[1] = { username: "尤小姐", account: "d0683190", passowrd: "880504" }
@@ -200,17 +204,23 @@
                     islogin = true;
                 }
             }
-            var messenger = " " + info[index].username + " 歡迎登入本站！"
-			var rID = info[index].username;
+            var rID = info[index].username;
 			var racc = info[index].account;
+			
+			var messenger = "ID：" + rID ;
+			var messenger2 = "帳戶：" + racc ; 
             if (islogin)
 			{
                 x.style.display = "none";
                 y.style.display = "none";
                 q.innerHTML = messenger;
+				qq.innerHTML = messenger2;
                 z.style.display = "block";
                 
                 alert("你好！ " + info[index].username + " 歡迎登入本網站！\n登入成功！");
+                $('#islog_img').css('display','block');
+                $('#islog_img').attr("src","img/islog" + index + ".png");
+                $('#islog_img').attr("width","50%");
             }
             else
 			{
@@ -345,8 +355,10 @@
 					<div id="islog" style="display:none">
 						
 						<br/>
-						<p id="show"></p>
-						<input type="submit" class="btn btn-primary" onclick="logout()" style="position:relative; left:-125px;" value="登出">
+						<div style = "position:relative; left:100px;"><img id="islog_img" alt="islog"></div>
+						<div id="show" style = "width:300px; text-align:left; position:relative; left:90px; margin:10px;"></div>
+						<div id="show2" style = "width:300px; text-align:left; position:relative; left:90px; margin:10px;"></div>
+						<input type="submit" class="btn btn-primary" onclick="logout()" style="position:relative; left:-68px; text-align:left;" value="登出">
 					</div>
 				</div>
 				<div class = "inbox">
