@@ -12,25 +12,101 @@
             text-align: center;
             padding: 10px;
         }
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Style the header */
+        header {
+            background-color: #666;
+            padding: 30px;
+            text-align: center;
+            font-size: 35px;
+            color: white;
+        }
+
+        /* Container for flexboxes */
+        section {
+            display: -webkit-flex;
+            display: flex;
+        }
+
+        /* Style the navigation menu */
+        nav {
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            background: #ccc;
+            padding: 20px;
+        }
+
+            /* Style the list inside the menu */
+            nav ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+        /* Style the content */
+        article {
+            -webkit-flex: 3;
+            -ms-flex: 3;
+            flex: 3;
+            background-color: #f1f1f1;
+            padding: 10px;
+        }
+
+        /* Style the footer */
+        footer {
+            background-color: #777;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+        @media (max-width: 600px) {
+            section {
+                -webkit-flex-direction: column;
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body style="margin:Opx;background-color:#b6ff00">
-    <div class="head">提供數位學習的機會</div>
-    <p style="text-align:center;color:brown;">
-        數位機會中心（Digital Opportunity Center，DOC），是一個位於偏鄉透過數位串連在地居民學習與生活的地方。
-        DOC由教育部補助資訊設備與網路，安排講師及輔導團隊，協助偏鄉民眾從最基本的操作電腦開始學習，一直到使用各種網路生活應用，如線上查氣象、掛號等，啟動社會、文化和經濟面的數位生活。
-    </p>
-    <p style="text-align:center;color:saddlebrown;">
-        居住在澎湖縣西嶼的韋大哥是個討海人，體認電腦的重要性，積極爭取教育部DOC到西嶼設置，他參與每一堂課，掌握舵桿的手改學著握滑鼠和敲鍵盤，一鍵一鍵敲下西嶼討海人的回憶和辛酸血淚故事。他很感謝DOC的設置，讓他認識更多夥伴並得以用電腦紀錄完成「徛佇這港海水个人」。
+    <header class="head">提供數位學習的機會</header>
+        <section>
+            <nav>
+                <ul>
+                    <li>
+                        <p style="text-align:center;color:saddlebrown;">
+                            數位機會中心（Digital Opportunity Center，DOC），是一個位於偏鄉透過數位串連在地居民學習與生活的地方。
+                                DOC由教育部補助資訊設備與網路，安排講師及輔導團隊，協助偏鄉民眾從最基本的操作電腦開始學習，一直到使用各種網路生活應用，如線上查氣象、掛號等，啟動社會、文化和經濟面的數位生活。
+                        </p>
+                    </li>
+                </ul>
+            </nav>
 
-        近年平板、智慧型手機等行動載具更便利於DOC走出去服務，開設行動分班課程，開設APP、QRcode掃描、藍芽連結、數位攝影等課程。
+            <article>
+                <p style="text-align:center;color:saddlebrown;">
+                    居住在澎湖縣西嶼的韋大哥是個討海人，體認電腦的重要性，積極爭取教育部DOC到西嶼設置，他參與每一堂課，掌握舵桿的手改學著握滑鼠和敲鍵盤，一鍵一鍵敲下西嶼討海人的回憶和辛酸血淚故事。他很感謝DOC的設置，讓他認識更多夥伴並得以用電腦紀錄完成「徛佇這港海水个人」。
 
-        位於苗栗縣的三灣DOC，透過數位攝影課，讓學員成為DOC行動攝影家，「定格」家鄉的美麗，也可進行在地產品網路行銷；DOC也開設婦女資訊課程專班-「數位好學堂」，透過跨齡、親子共學模式，提升婦女學習動機，學習使用即時通、電腦記帳等。
+                    近年平板、智慧型手機等行動載具更便利於DOC走出去服務，開設行動分班課程，開設APP、QRcode掃描、藍芽連結、數位攝影等課程。
 
-        目前全國偏遠鄉鎮設置有117個DOC，持續發想深耕社區的數位關懷，結合鄰近社區、樂齡中心等，服務在地居民的數位生活。國家數位包容政策在教育部統整與部會資源合作下，從教育、學習出發，一步一腳印踏實服務，以數位和網路連結城與鄉的交流，實現偏鄉居民數位生活的夢想與開創在地社區無窮的機會。
+                    位於苗栗縣的三灣DOC，透過數位攝影課，讓學員成為DOC行動攝影家，「定格」家鄉的美麗，也可進行在地產品網路行銷；DOC也開設婦女資訊課程專班-「數位好學堂」，透過跨齡、親子共學模式，提升婦女學習動機，學習使用即時通、電腦記帳等。
+
+                    目前全國偏遠鄉鎮設置有117個DOC，持續發想深耕社區的數位關懷，結合鄰近社區、樂齡中心等，服務在地居民的數位生活。國家數位包容政策在教育部統整與部會資源合作下，從教育、學習出發，一步一腳印踏實服務，以數位和網路連結城與鄉的交流，實現偏鄉居民數位生活的夢想與開創在地社區無窮的機會。
 
 
-    </p>
+                </p>
 
+            </article>
+        </section>
+    
+
+   
 </body>
 </html>
