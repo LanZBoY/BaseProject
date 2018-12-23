@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
@@ -228,7 +228,7 @@
 	</script>
 	 <script language="javascript">
 		function validatenameForm() {
-			var vbookname = document.forms["myForm"]["fname"].value;
+			var vbookname = document.forms["myForm"]["fbookname"].value;
 			var vyear = document.forms["myForm"]["year"].value;
 			var vwhere = document.forms["myForm"]["where"].value;
 			var vsepar = document.forms["myForm"]["separ"].value;
@@ -244,7 +244,7 @@
 			{
 				alert("書名不可為空");
 				return false;
-			}
+            }
 			if (vyear == "")
 			{
 				alert("書籍出版年份不可為空");
@@ -357,7 +357,7 @@
 			
 				<div class="inboxhead">書籍基本資料</div>
 				
-				<form name="myForm" action="test.php" onsubmit="return validatenameForm()" method="post" class="stylehead">
+				<form name="myForm"  onsubmit="return validatenameForm()" method="post" class="stylehead">
 					<div class = "inboxbody">書名：<input type="text" name="fbookname" maxlength="3" size="10" class="inboxset"></div>
 					<div class = "inboxbody">出版年份：<input type="number" min="1800" max="2018" class="inboxset" name="year">年</div>
 					<div class = "inboxbody">出版商：<input type="text" maxlength="20" size="40" class="inboxset" name="where"></div>
@@ -375,7 +375,7 @@
 					<div class = "inboxbody">聯絡資訊（手機、市話）：<input type="text" class="inboxset" maxlength="10" size="10" name="cellphone"></div>
 					<div class = "inboxbody">通訊地址：<input type="text" maxlength="50" size="50" class="inboxset" name="address"></div>
 					
-					<hr width=95% size=0.5 color=#FFFFFF>
+					<hr width=95% size=1 color=#FFFFFF>
 					
 					<input type="submit" value="送出表單" class="stylehead">
 				</form>
