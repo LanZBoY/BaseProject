@@ -57,15 +57,16 @@
 			height:3600px;
 			background-color:#CED8DB;
 			margin:0px auto;
-			opacity:0.6;
+			opacity:0.8;
 			display:inline-block;
 			vertical-align:top;
+			font-size:25px;
 		}
 		.btline
 		{
 			text-align:center;
 			background-color:#003344;
-			border-bottom:10px ridge #003344;
+			border-bottom:10px solid #003344;
 			height:auto;
 			
 		}
@@ -143,12 +144,22 @@
 			background:#CED8DB;
 			border-radius:5% 5% 5% 5%;
 			text-align:center;
-			opacity:0.6;
+			opacity:0.8;
 		}
-		.textype
+		.inboxhead
 		{
-			color:white;
-			font-size:30px;
+			font-size:50px;
+			font-weight:bold;
+			margin:15px;
+		}
+		.inboxset
+		{
+			font-size:20px;
+			height:35px
+		}
+		.inboxbody
+		{
+			margin:10px;
 		}
 	</style>
 	
@@ -162,7 +173,7 @@
 		　setTimeout('ShowTime()',1000);
 		}
 	</script>
-	<script>
+	<script language="javascript">
 		function login()
 		{
             var account = document.forms["mylogin"]["account"].value;
@@ -204,7 +215,9 @@
                 alert("登入失敗！\n請確認你的帳號或密碼無誤！");
             }
         }
-		function logout() {
+		
+		function logout()
+		{
             var x = document.getElementById("unlog");
             var y = document.getElementById("unlog2");
             var z = document.getElementById("islog");
@@ -213,6 +226,92 @@
             z.style.display = "none";
         }
 	</script>
+	 <script language="javascript">
+		function validatenameForm() {
+			var vbookname = document.forms["myForm"]["fname"].value;
+			var vyear = document.forms["myForm"]["year"].value;
+			var vwhere = document.forms["myForm"]["where"].value;
+			var vsepar = document.forms["myForm"]["separ"].value;
+			var vname = document.forms["myForm"]["name"].value;
+			var vsex = document.forms["myForm"]["Yoursex"].value;
+			var vcellphone= document.forms["myForm"]["cellphone"].value;
+			var vpostid = document.forms["myForm"]["postid"].value;
+			var vaddress = document.forms["myForm"]["address"].value;
+			
+			var special = 0;
+			
+			if (vbookname == "") //vname > vbookname
+			{
+				alert("書名不可為空");
+				return false;
+			}
+			if (vyear == "")
+			{
+				alert("書籍出版年份不可為空");
+				return false;
+			}
+			if (vyear >= 2018 || vyear <= 1800)
+			{
+				alert("年份錯誤");
+				return false;
+			}
+			if (vwhere == "") //month > where
+			{
+				alert("出版社不可為空");
+				return false;
+			}
+			if (vsepar == "") //day > separ
+			{
+				alert("書籍類型不可為空");
+				return false;
+			}
+			if(vname == "")
+			{
+				alert("姓名不可為空");
+				return false;
+			}
+			if (vsex == "male")
+			{
+				vsex = "男";
+			}
+			if (vsex == "weman")
+			{
+				vsex = "女";
+			}
+			if (vcellphone == "") 
+			{
+				vcellphone = "無";
+			}
+			if(vcellphone.length<9)
+			{
+				alert("手機格式不正確");
+				return false;
+			}
+			if (vpostid == "") 
+			{
+				alert("郵遞區號不可為空");
+				return false;
+			}
+			if (vaddress == "") 
+			{
+				alert("通訊地址不可為空");
+				return false;
+			}
+	
+			var check = confirm("書名: " + vbookname  + "\n出版年份: " + vyear + " 年 " + "\n出版商: " + vwhere + "\n書籍分類: " + vsepar + "\n姓名 " + vname + "\n性別：" + vsex +  
+			"\n手機 : "+ vcellphone +"\n郵遞區號 : "+ vpostid +"\n通訊地址 : " + vaddress );
+			if(check==true)
+			{
+				alert("確定送出，回到主頁");
+				javascript:location.href='主畫面.html'
+			}
+			else
+			{
+				alert("取消送出資料，停留在該頁面");
+			}
+			return false;
+		}
+    </script>
 </head>
 
 <body onload="ShowTime()">
@@ -227,6 +326,7 @@
 	</div>
 	<div class = "fullback">
 		<div class = "normalback">
+			<!--左邊區塊-->
 			<div class = "lside">
 				<div class = "information">
 					<!--未登入區塊-->
@@ -252,11 +352,35 @@
 					現在時間：<span id = "showbox"></span>
 				</div>
 			</div>
+			<!--中間區塊-->
 			<div class = "middleback">
-				<form>
+			
+				<div class="inboxhead">書籍基本資料</div>
+				
+				<form name="myForm" action="test.php" onsubmit="return validatenameForm()" method="post" class="stylehead">
+					<div class = "inboxbody">書名：<input type="text" name="fbookname" maxlength="3" size="10" class="inboxset"></div>
+					<div class = "inboxbody">出版年份：<input type="number" min="1800" max="2018" class="inboxset" name="year">年</div>
+					<div class = "inboxbody">出版商：<input type="text" maxlength="20" size="40" class="inboxset" name="where"></div>
+					<div class = "inboxbody">書籍類型：<input type="text" maxlength="20" size="40" class="inboxset" name="separ"></div>
 					
+					<hr width=95% size=1 color=#FFFFFF>
+					<div class = "inboxhead">個人資料</div>
+					<div class = "inboxbody">姓名：<input type="text" name="name" maxlength="3" size="10" class="inboxset"></div>
+					<div class = "inboxbody">性別：
+					<select name="Yoursex" class="stylehead">
+						<option value="male" class="stylehead" name="male">男</option>
+						<option value="weman" class="stylehead" name="weman">女</option>
+					</select>
+					</div>
+					<div class = "inboxbody">聯絡資訊（手機、市話）：<input type="text" class="inboxset" maxlength="10" size="10" name="cellphone"></div>
+					<div class = "inboxbody">通訊地址：<input type="text" maxlength="50" size="50" class="inboxset" name="address"></div>
+					
+					<hr width=95% size=0.5 color=#FFFFFF>
+					
+					<input type="submit" value="送出表單" class="stylehead">
 				</form>
 			</div>
+			<!--右邊區塊-->
 			<div class = "rside">
 			</div>
 		</div>
