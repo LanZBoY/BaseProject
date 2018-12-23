@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
@@ -229,12 +229,8 @@
         }
 	</script>
 	 <script language="javascript">
-<<<<<<< Updated upstream
-		function validatenameForm() {
-=======
 		function validatenameForm()
 		{
->>>>>>> Stashed changes
 			var vbookname = document.forms["myForm"]["fbookname"].value;
 			var vyear = document.forms["myForm"]["year"].value;
 			var vwhere = document.forms["myForm"]["where"].value;
@@ -249,7 +245,7 @@
 			{
 				alert("書名不可為空");
 				return false;
-            }
+			}
 			if (vyear == "")
 			{
 				alert("書籍出版年份不可為空");
@@ -364,13 +360,6 @@
 				
 				<div class="inboxhead">書籍基本資料</div>
 				
-<<<<<<< Updated upstream
-				<form name="myForm"  onsubmit="return validatenameForm()" method="post" class="stylehead">
-					<div class = "inboxbody">書名：<input type="text" name="fbookname" maxlength="3" size="10" class="inboxset"></div>
-					<div class = "inboxbody">出版年份：<input type="number" min="1800" max="2018" class="inboxset" name="year">年</div>
-					<div class = "inboxbody">出版商：<input type="text" maxlength="20" size="40" class="inboxset" name="where"></div>
-					<div class = "inboxbody">書籍類型：<input type="text" maxlength="20" size="40" class="inboxset" name="separ"></div>
-=======
 				<form name="myForm" onsubmit="return validatenameForm()" method="post">
 					<div class = "inboxbody" style = "position:relative; ">書名：<input type="text" name="fbookname" maxlength="30" size="40" class="inboxset"></div>
 					<div class = "inboxbody" style = "position:relative; ">出版年份：<input type="number" min="1800" max="2018" class="inboxset" name="year"> 年</div>
@@ -378,7 +367,6 @@
 					<div class = "inboxbody" style = "position:relative; ">書籍類型：<input type="text" maxlength="30" size="40" class="inboxset" name="separ"></div>
 					
 					<hr width=95% size=5 color=#FFFFFF>
->>>>>>> Stashed changes
 					
 					<div class = "inboxhead">個人資料</div>
 					
@@ -392,11 +380,7 @@
 					<div class = "inboxbody">郵遞區號：<input type="number" min="100" max="819" class="inboxset" name="postid"></div>
 					<div class = "inboxbody">通訊地址：<input type="text" maxlength="50" size="50" class="inboxset" name="address"></div>
 					
-<<<<<<< Updated upstream
-					<hr width=95% size=1 color=#FFFFFF>
-=======
 					<hr width=95% size=5 color=#FFFFFF>
->>>>>>> Stashed changes
 					
 					<input type="submit" value="送出表單">
 				</form>
