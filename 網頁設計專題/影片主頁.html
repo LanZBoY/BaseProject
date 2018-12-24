@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -58,12 +58,86 @@
             y.style.display = "block";
             z.style.display = "none";
         }
+
+        (function(document) {
+    'use strict';
+
+    // 建立 LightTableFilter
+    var LightTableFilter = (function(Arr) {
+
+    var _input;
+
+    // 資料輸入事件處理函數
+    function _onInputEvent(e) {
+        _input = e.target;
+        var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+        Arr.forEach.call(tables, function(table) {
+        Arr.forEach.call(table.tBodies, function(tbody) {
+        Arr.forEach.call(tbody.rows, _filter);
+        });
+      });
+    }
+
+    // 資料篩選函數，顯示包含關鍵字的列，其餘隱藏
+    function _filter(row) {
+        var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+        row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+    }
+
+    return {
+        // 初始化函數
+        init: function() {
+            var inputs = document.getElementsByClassName('light-table-filter');
+            Arr.forEach.call(inputs, function(input) {
+            input.oninput = _onInputEvent;
+        });
+      }
+    };
+  })(Array.prototype);
+
+  // 網頁載入完成後，啟動 LightTableFilter
+    document.addEventListener('readystatechange', function() {
+    if (document.readyState === 'complete') {
+        LightTableFilter.init();
+    }
+});
+
+})(document);
     </script>
 
     <meta charset="utf-8" />
 
-    <title>偏鄉居民購物網站主頁</title>
+    <title>影片欣賞</title>
     <style>
+        .video-container {
+
+            position: relative;
+
+            padding-bottom: 56.25%;
+
+            padding-top: 30px;
+
+            overflow: hidden;
+
+            width:560px;
+
+            height:315px
+
+            }
+
+        .video-container iframe, .video-container object, .video-container embed {
+
+            position: absolute;
+
+            top: 0;left: 0;
+
+            width: 100%;
+
+            height: 100%;
+            }
+
+        
+
         h1 {
             font-size: 60px;
             line-height: 120px;
@@ -131,16 +205,10 @@
         }
         </style>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<style>
-.mySlides {display:none;}
-</style>
 
 </head>
 <body style="background-color:#dddddd">
-    <div style="width:1920px;height:120px"><h1>偏鄉居民網站</h1></div>
+    <div style="width:1920px;height:120px"><h1>影片欣賞</h1></div>
     <div class="container-fluid">
         <div class="row">
             <!--連結區塊-->
@@ -170,29 +238,31 @@
             </div>
         </div>
     </div>
-
-    <div class="w3-content w3-section" style="max-width:500px;max-height:300px">
-      <img class="mySlides" src="pictures/SID.jpg" style="width:500px;height:300px">
-      <img class="mySlides" src="pictures/ChiayiCP.jpg" style="width:500px;height:300px">
-      <img class="mySlides" src="pictures/TIEY.png" style="width:500px;height:300px">
-    </div>
+    <div align="right" style="margin-top:50px">搜尋: <input type="search" class="light-table-filter" data-table="table table-hover" placeholder="請輸入關鍵字"></div>
     
-    <script>
-    var myIndex = 0;
-    carousel();
-    
-    function carousel() {
-      var i;
-      var x = document.getElementsByClassName("mySlides");
-      for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";  
-      }
-      myIndex++;
-      if (myIndex > x.length) {myIndex = 1}    
-      x[myIndex-1].style.display = "block";  
-      setTimeout(carousel, 3000); // Change image every 2 seconds
-    }
-    </script>
-            
+    <div class="container">         
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>影片</th>
+              <th>名稱</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="video-container" ><iframe width="560" height="315" src="https://www.youtube.com/embed/LxEX80Ml3kA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></td>
+              <td>讓偏鄉不再是弱勢教育代名詞！揪年輕人一起來翻轉</td>
+            </tr>
+            <tr>
+              <td><iframe width="560" height="315" src="https://www.youtube.com/embed/sJWdENW7OD0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+              <td>【兒福聯盟】「夢想補給讚」偏鄉小學兒童關懷服務</td>
+            </tr>
+            <tr>
+              <td><iframe width="560" height="315" src="https://www.youtube.com/embed/nvU4t8W5kbQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+              <td>與偏鄉居民愛的約定</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 </body>
 </html>
