@@ -88,6 +88,42 @@
     <script>
         function validatenameForm() {
             var vname = document.forms["myForm"]["fname"].value;
+            var vProduct = document.forms["myForm"]["ProductName"].value;
+            var vCount = document.forms["myForm"]["count"].value;
+            var vCompany = document.forms["myForm"]["company"].value;
+            var vHome = document.forms["myForm"]["home"].value;
+            var vCellphone = document.forms["myForm"]["cellphone"].value;
+            var vPostid = document.forms["myForm"]["postid"].value;
+            var vAddress = document.forms["myForm"]["address"].value;
+            var message = "";
+            var isError = false;
+            if (vname == "") {
+                message = message + "姓名不能為空！\n";
+                isError = true;
+            }
+            if (vHome == "") {
+                message = message + "地址不能為空！\n";
+                isError = true;
+            }
+            if (vCellphone == "") {
+                message = message + "電話不能為空！\n";
+                isError = true;
+            }
+            if (vPostid == "") {
+                message = message + "請輸入郵遞區號！\n";
+                isError = true;
+            }
+            if (vAddress == "") {
+                message = message + "請輸入地址！\n";
+                isError = true;
+            }
+            if (isError) {
+                alert(message);
+                return false;
+            } else {
+                alert("訂單送出！");
+                return true;
+            }
         }
     </script>
 </head>
@@ -102,9 +138,9 @@
             <form name="myForm" action="test.php" onsubmit="return validatenameForm()" method="post" class="stylehead">
                 姓名：<input type="text" name="fname" maxlength="3" size="10" class="inputstyle"><br><br>
                 購買商品名稱：<select name="ProductName" class="stylehead">
-                    <option value="Product-1" class="stylehead" name="male">台灣特色產品-紅麴御醬三味</option>
-                    <option value="Product-2" class="stylehead" name="weman">台灣特色產品-漆器</option>
-                    <option value="Product-3" class="stylehead" name="weman">台灣特色產品-桐花陶茶具</option>
+                    <option value="Product-1" class="stylehead" name="Test-1">台灣特色產品-紅麴御醬三味</option>
+                    <option value="Product-2" class="stylehead" name="Test-2">台灣特色產品-漆器</option>
+                    <option value="Product-3" class="stylehead" name="Test-3">台灣特色產品-桐花陶茶具</option>
                 </select><br><br>
                 商品數量：<input type="number" min="1" max="99999" class="inputstyle" name="count">個<br><br>
                 <hr width=95% size=1 color=#FFFFFF>
