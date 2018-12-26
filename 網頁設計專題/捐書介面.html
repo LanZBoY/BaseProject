@@ -74,6 +74,7 @@
 		{
 			border:2px ridge #001922;
 			background-color:#2f5966;
+			cursor: pointer;
 			color:#FFFFFF;
 			font-size:20px;
 			font-weight:bold;
@@ -87,12 +88,38 @@
 			border:2px ridge #888888;
 			color:white;
 		}
+		#Gbtn
+		{
+			display: inline-block;
+			font-size: 45px;
+			cursor: pointer;
+			text-align: center;   
+			text-decoration: none;
+			outline:none;
+			background-color:#FF0000;
+			color: #fff;
+			border: none;
+			border-radius: 30px;
+			width:300px; height:300px;
+			margin-bottom:100px; margin-top:100px;
+		}
+		#Gbtn:hover
+		{
+			background-color:#FF4C4C;
+		}
+
+		#Gbtn:active
+		{
+			background-color: #CC0000;
+			box-shadow: 0 5px #666;
+			transform: translateY(4px);
+		}
 		#T2B
 		{
-			background: -webkit-linear-gradient(#003344,#8ca3aa);
-			background: -o-linear-gradient(#003344,#8ca3aa);
-			background: -moz-linear-gradient(#003344,#8ca3aa);
-			background: linear-gradient(#003344,#8ca3aa);
+			background: -webkit-linear-gradient(45deg,yellow,red);
+			background: -o-linear-gradient(45deg,yellow,red);
+			background: -moz-linear-gradient(45deg,yellow,red);
+			background: linear-gradient(45deg,yellow,red);
 		}
 		.lside
 		{
@@ -136,15 +163,16 @@
 			font-size:30px;
 			color:#FFFFFF;
 		}
-		.log
+		.right-information
 		{
-			position:relative; right:-35px; top:50px;
+			position:relative; top:20px;
 			height:500px;
 			width:400px;
-			background:#CED8DB;
-			border-radius:5% 5% 5% 5%;
-			text-align:center;
+			background:#587A84;
+			border-radius:20px;
 			opacity:0.8;
+			font-size:30px;
+			color:#FFFFFF;
 		}
 		.inboxhead
 		{
@@ -333,6 +361,7 @@
 		<button id = "btn"  onclick="javascript:location.href='志工.html'">志工報名</button>
 		<button id = "btn"	onclick="javascript:location.href='捐書介面.html'">我要捐書</button>
 		<button id = "btn"	onclick="javascript:location.href='購物網站主頁.html'">購物網站</button>
+		
 	</div>
 	<div class = "fullback">
 		<div class = "normalback">
@@ -366,6 +395,7 @@
 					現在時間：<span id = "showbox"></span><br/>
 					╚════════════════╝
 				</div>
+				<div class = "information" , style = "top:60px;"></div>
 			</div>
 			<!--中間區塊-->
 			<div class = "middleback">
@@ -381,7 +411,6 @@
 					<hr width=95% size=5 color=#FFFFFF>
 					
 					<div class = "inboxhead">個人資料</div>
-					
 					<div class = "inboxbody" style = "position:relative; ">姓名：<input type="text" name="name" maxlength="20" size="40" class="inboxset"></div>
 					<div class = "inboxbody">性別：
 					<select name="Yoursex" class="stylehead">
@@ -399,6 +428,11 @@
 			</div>
 			<!--右邊區塊-->
 			<div class = "rside">
+				<div class = "right-information">
+					<button id = "Gbtn" onclick="javascript:location.href='https://goo.gl/forms/YDv22dWOxVLZTmjj2'">Google表單</button>
+				</div>
+				<div class = "right-information" style = "top:40px;"></div>
+				<div class = "right-information" style = "top:60px;"></div>
 			</div>
 		</div>
 		
