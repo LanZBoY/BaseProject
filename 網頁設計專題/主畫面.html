@@ -132,6 +132,45 @@
         }
         </style>
 
+<style type="text/css">
+    #sitebody{
+    width:1500px;
+    margin:0 auto;
+    font-size:13px;
+    }
+    #header{
+    height:80px;
+    line-height:80px;
+    }
+    #sidebar_left{
+        margin-left:-100px;
+    width:500px;
+    height:400px;
+    float:left;
+    }
+    #sidebar_right{
+    position: relative;
+    right:10px;
+    top:-320px;
+    width:500px;
+    height:1000px;
+    float:right;
+    }
+    #content{
+    margin-left:500px;
+    margin-right:500px;
+    width: 500px;
+    height:500px;
+    line-height:400px;
+    }
+    #footer{
+    clear:both;
+    background-color:#FFD4D4;
+    height:80px;
+    line-height:80px;
+    }
+    </style>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -171,12 +210,20 @@
             </div>
         </div>
     </div>
-
-    <div class="w3-content w3-section" style="max-width:500px;max-height:300px">
-      <img class="mySlides" src="pictures/SID.jpg" style="width:500px;height:300px">
-      <img class="mySlides" src="pictures/ChiayiCP.jpg" style="width:500px;height:300px">
-      <img class="mySlides" src="pictures/TIEY.png" style="width:500px;height:300px">
+    <div id="sitebody">
+        <div id="sidebar_left" style="width:300px">
+                <iframe width="560" height="300" src="https://www.youtube.com/embed/LxEX80Ml3kA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div id="content" class="w3-content w3-section" style="width:500px;max-width:500px;max-height:300px">
+            <img class="mySlides" src="pictures/SID.jpg" style="width:500px;height:300px">
+            <img class="mySlides" src="pictures/ChiayiCP.jpg" style="width:500px;height:300px">
+            <img class="mySlides" src="pictures/TIEY.png" style="width:500px;height:300px">
+        </div>
+        <div id="sidebar_right"style="border:5px black solid;width:300px">
+            <h1 style="border-bottom:3px blue dashed;">更新消息</h1>
+        </div>
     </div>
+    
     
     <script>
     var myIndex = 0;
